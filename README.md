@@ -6,4 +6,4 @@ Alunos:
 Breno ra: 14000
 Leticia ra: 13736
 Giovani ra: 14272 
-Ryan ra: ?
+Ryan ra: 13604
