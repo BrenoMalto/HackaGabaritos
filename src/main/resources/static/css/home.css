@@ -1,0 +1,54 @@
+/* menu.css */
+
+/* Container do menu lateral */
+nav {
+  width: 220px;               /* largura fixa */
+  background-color: #343a40;  /* fundo escuro */
+  min-height: 100vh;          /* altura total da tela */
+  color: white;
+}
+
+/* Título do menu */
+nav h4 {
+  color: white;
+  margin-bottom: 1rem;
+}
+
+/* Lista de navegação */
+nav ul.nav {
+  padding-left: 0;
+}
+
+/* Itens da lista */
+nav ul.nav li {
+  margin-bottom: 0.5rem;
+}
+
+/* Links do menu */
+nav a.nav-link {
+  color: white;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  transition: background-color 0.3s ease;
+}
+
+/* Links ativos e hover */
+nav a.nav-link:hover,
+nav a.nav-link.active {
+  background-color: #495057; /* cinza mais claro no hover */
+  color: white;
+  text-decoration: none;
+}
+
+/* Link do logout com destaque */
+nav a.nav-link[href$="/logout"] {
+  margin-top: 2rem;
+  font-weight: bold;
+  color: #ff6b6b;
+}
+
+nav a.nav-link[href$="/logout"]:hover {
+  background-color: #ff8787;
+  color: white;
+}
