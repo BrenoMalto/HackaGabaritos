@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <title>Alunos</title>
+    <link rel="stylesheet" th:href="@{/css/menu.css}">
+    <link rel="stylesheet" th:href="@{/css/home.css}">
+</head>
+<body>
+
+<div style="display: flex; min-height: 100vh;">
+    <div th:replace="/menulateral :: menuLateral"></div>
+    <main style="flex-grow: 1; padding: 20px;">
+
+        <h2>Alunos</h2>
+        <a th:href="@{/alunos/novo}" class="btn btn-success mb-3">Novo Aluno</a>
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Turma</th>
+                <th>Disciplinas</th>
+                <th>Ações</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="a : ${alunos}">
+                <td th:text="${a.nome}">Nome</td>
+                <td th:text="${a.turma != null ? a.turma.nome : 'N/A'}">Turma</td>
+                <td>
+                    <span th:each="d, iterStat : ${a.disciplinas}">
+                        <span th:text="${d.nome}">Disciplina</span><span th:if="${!iterStat.last}">, </span>
+                    </span>
+                </td>
+                <td>
+                    <a th:href="@{\'/alunos/editar/\' + ${a.id}}" class="btn btn-primary btn-sm">Editar</a>
+                    <a th:href="@{\'/alunos/excluir/\' + ${a.id}}"
+                       onclick="return confirm(\'Excluir aluno?\')"
+                       class="btn btn-danger btn-sm">Excluir</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </main>
+</div>
+</body>
+</html>
+
+
