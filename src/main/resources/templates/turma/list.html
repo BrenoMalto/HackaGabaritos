@@ -12,7 +12,7 @@
 
 
 <div style="display: flex; min-height: 100vh;">
-    <div th:replace="/menulateral :: menuLateral"></div>
+    <div th:replace="~{/menulateral :: menuLateral}"></div>
     <main style="flex-grow: 1; padding: 20px;">
 
         <h2>Turmas</h2>
@@ -20,14 +20,17 @@
 
 
             <table class="table">
-                <thead><tr><th>Nome</th><th>Ações</th></tr></thead>
+                <thead><tr><th>Nome</th><th>Alunos</th><th>Ações</th></tr></thead>
                 <tbody>
                 <tr th:each="t : ${turmas}">
                     <td th:text="${t.nome}">Nome</td>
                     <td>
-                        <a th:href="@{'/turmas/editar/' + ${t.id}}" class="btn btn-primary btn-sm">Editar</a>
-                        <a th:href="@{'/turmas/excluir/' + ${t.id}}"
-                           onclick="return confirm('Excluir turma?')"
+                        <span th:each="aluno : ${t.alunos}" th:text="${aluno.nome} + '; '"></span>
+                    </td>
+                    <td>
+                        <a th:href="@{\'/turmas/editar/\' + ${t.id}}" class="btn btn-primary btn-sm">Editar</a>
+                        <a th:href="@{\'/turmas/excluir/\' + ${t.id}}"
+                           onclick="return confirm(\'Excluir turma?\')"
                            class="btn btn-danger btn-sm">Excluir</a>
                     </td>
                 </tr>
@@ -37,3 +40,5 @@
     </div>
 </body>
 </html>
+
+

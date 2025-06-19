@@ -18,6 +18,10 @@ public class DisciplinaController {
 
     @GetMapping
     public String listar(Model model) {
+<<<<<<< HEAD
+=======
+        // Apenas para teste, retorna uma lista vazia ou um mock
+>>>>>>> 82ab865 (implementado listagem de aluno)
         model.addAttribute("disciplinas", service.listar());
         return "disciplina/list";
     }
