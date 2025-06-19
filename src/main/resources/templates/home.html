@@ -14,7 +14,7 @@
 
 <body>
 <div style="display: flex; min-height: 100vh;">
-    <div th:replace="/menulateral :: menuLateral"></div>
+    <div th:replace="~{/menulateral :: menuLateral}"></div>
 
     <main style="flex-grow: 1; padding: 20px;">
         <h1>Bem-vindo, <span th:text="${username}">Usuário</span>!</h1>
